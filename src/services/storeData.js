@@ -1,10 +1,9 @@
-const { Firestore } = require('@google-cloud/firestore');
+const { Firestore } = require('@google-cloud/firestore'); 
+
+const db = new Firestore ({
+  projectId: 'submissionmlgc-putrividia',
+  databaseId: 'last'
+});
  
-async function storeData(id, data) {
-  const db = new Firestore();
+  const predictCollection = db.collection('predictions');
  
-  const predictCollection = db.collection('prediction');
-  return predictCollection.doc(id).set(data);
-}
- 
-module.exports = storeData;
